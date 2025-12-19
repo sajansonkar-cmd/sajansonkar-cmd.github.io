@@ -341,9 +341,6 @@
             .section {
                 page-break-inside: avoid;
             }
-            .download-btn {
-                display: none;
-            }
         }
 
         @media (max-width: 768px) {
@@ -359,27 +356,11 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
-            .download-btn {
-                top: 10px;
-                right: 10px;
-                padding: 10px 18px;
-                font-size: 0.85em;
-            }
         }
     </style>
-    <script>
-        function downloadPDF() {
-            window.print();
-        }
-    </script>
 </head>
 <body>
     <div class="container">
-        <button class="download-btn" onclick="downloadPDF()">
-            <span class="download-icon">⬇</span>
-            <span>Download PDF</span>
-        </button>
-        
         <header>
             <h1 class="name">SARJAN SONKAR</h1>
             <div class="contact-info">
