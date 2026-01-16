@@ -643,3 +643,24 @@ section {
         padding: 20px;
     }
 }
+
+/* Profile logo in navbar */
+.profile-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(56, 189, 248, 0.6);
+  box-shadow:
+    0 0 8px rgba(56, 189, 248, 0.4),
+    0 0 18px rgba(56, 189, 248, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-logo:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 12px rgba(56, 189, 248, 0.7),
+    0 0 28px rgba(56, 189, 248, 0.45);
+}
+
