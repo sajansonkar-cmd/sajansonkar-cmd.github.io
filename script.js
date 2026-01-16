@@ -1,0 +1,125 @@
+/* ===================================
+   FILE: script.js
+   Interactive Features
+   =================================== */
+
+// Mobile Menu Toggle
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+// Toggle mobile menu
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+    });
+});
+
+// Smooth scroll with offset for fixed navbar
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        
+        if (targetSection) {
+            const navHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = targetSection.offsetTop - navHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Active navigation link on scroll
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+    const navHeight = document.querySelector('.navbar').offsetHeight;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - navHeight - 100;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Add fade-in animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all cards and sections
+const animatedElements = document.querySelectorAll('.skill-card, .project-card, .cert-card, .about-content, .contact-content');
+animatedElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// Add typing effect to home section (optional enhancement)
+const roleText = document.querySelector('.role');
+if (roleText) {
+    const originalText = roleText.textContent;
+    roleText.textContent = '';
+    let index = 0;
+    
+    const typeWriter = () => {
+        if (index < originalText.length) {
+            roleText.textContent += originalText.charAt(index);
+            index++;
+            setTimeout(typeWriter, 50);
+        }
+    };
+    
+    // Start typing after page loads
+    setTimeout(typeWriter, 500);
+}
+
+// Console message (fun easter egg for developers)
+console.log('%c👨‍💻 Sarjan Sonkar', 'color: #00ff88; font-size: 20px; font-weight: bold;');
+console.log('%cCyber Security Enthusiast | B.E. IT Student', 'color: #0088ff; font-size: 14px;');
+console.log('%cInterested in collaboration? Reach out!', 'color: #b4b4c5; font-size: 12px;');
+```
+
+---
+
+## 📁 **File Structure for GitHub Pages**
+```
+your-portfolio/
+│
+├── index.html          (Main HTML file)
+├── style.css           (All styling)
+├── script.js           (Interactive features)
+└── README.md           (Optional project description)
