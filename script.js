@@ -3,6 +3,33 @@
    Interactive Features
    =================================== */
 
+// for Image preview large
+document.querySelectorAll('.gallery-item img').forEach(img=>{
+  img.addEventListener('click',()=>{
+    const overlay=document.createElement('div');
+    overlay.style.position='fixed';
+    overlay.style.top='0';
+    overlay.style.left='0';
+    overlay.style.width='100%';
+    overlay.style.height='100%';
+    overlay.style.background='rgba(0,0,0,0.8)';
+    overlay.style.display='flex';
+    overlay.style.alignItems='center';
+    overlay.style.justifyContent='center';
+
+    const large=document.createElement('img');
+    large.src=img.src;
+    large.style.maxWidth='90%';
+    large.style.maxHeight='90%';
+
+    overlay.appendChild(large);
+
+    overlay.onclick=()=>overlay.remove();
+
+    document.body.appendChild(overlay);
+  });
+});
+
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
