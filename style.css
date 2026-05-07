@@ -663,6 +663,49 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Text Demo Section */
+.text-demo-section {
+    background: var(--bg-darker);
+}
+
+.text-demo-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 24px;
+    display: grid;
+    gap: 12px;
+}
+
+.text-demo-card label {
+    color: var(--text-secondary);
+}
+
+.text-demo-card textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 120px;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: var(--font-primary);
+    font-size: 16px;
+}
+
+.text-demo-card textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+#typedTextOutput {
+    color: var(--primary-color);
+    word-break: break-word;
+}
+
 /* Certificate page */
 .cert-page {
   max-width: 900px;

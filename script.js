@@ -138,15 +138,14 @@ if (roleText) {
 console.log('%c👨‍💻 Sarjan Sonkar', 'color: #00ff88; font-size: 20px; font-weight: bold;');
 console.log('%cCyber Security Enthusiast | B.E. IT Student', 'color: #0088ff; font-size: 14px;');
 console.log('%cInterested in collaboration? Reach out!', 'color: #b4b4c5; font-size: 12px;');
-```
 
----
+// Simple text input demo
+const userTextInput = document.getElementById('userTextInput');
+const typedTextOutput = document.getElementById('typedTextOutput');
 
-## 📁 **File Structure for GitHub Pages**
-```
-your-portfolio/
-│
-├── index.html          (Main HTML file)
-├── style.css           (All styling)
-├── script.js           (Interactive features)
-└── README.md           (Optional project description)
+if (userTextInput && typedTextOutput) {
+    userTextInput.addEventListener('input', (event) => {
+        const value = event.target.value.trim();
+        typedTextOutput.textContent = value || 'Your text will appear here.';
+    });
+}
